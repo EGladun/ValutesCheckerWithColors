@@ -59,7 +59,7 @@ class SecondViewController: UIViewController {
     @objc func converterRub() {
         if let value = self.rubTextField.text {
             let rubValue = (value as NSString).doubleValue
-            self.otherTextField.text = String(rubValue * self.rate)
+            self.otherTextField.text = String(rubValue / self.rate)
         }
     }
     
