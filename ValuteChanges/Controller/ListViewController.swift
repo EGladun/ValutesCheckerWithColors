@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ListViewController: UIViewController {
 
@@ -19,10 +20,15 @@ class ListViewController: UIViewController {
     let identifier = "MyCell"
     var searching = false
     var searchValute: [Valute] = []
+    let activityIndicator = UIActivityIndicatorView()
+    let realm = try! Realm()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "List"
+        self.startAnim()
         
         
         self.configureSearchBar()
@@ -35,7 +41,47 @@ class ListViewController: UIViewController {
             self.valutesArray = self.parser.valutesArray
             self.searchBar.isHidden = false
             self.tableView.reloadData()
+            
+            try! self.realm.write {
+                self.realm.deleteAll()
+            }
+            
+            self.saveToRealm()
+            self.stopAnim()
         }
+        
+        
+        
+    }
+    
+    func startAnim() {
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.style = UIActivityIndicatorView.Style.gray
+        self.view.addSubview(activityIndicator)
+        self.activityIndicator.startAnimating()
+    }
+    
+    func stopAnim() {
+        self.activityIndicator.stopAnimating()
+    }
+    
+    func saveToRealm() {
+        self.valutesArray.forEach({ (arg0) in
+            let currentValute = ValuteModel()
+            currentValute.id = arg0.id!
+            currentValute.numCode = arg0.numCode!
+            currentValute.charCode = arg0.charCode!
+            currentValute.nominal = arg0.nominal!
+            currentValute.name = arg0.name!
+            currentValute.value = arg0.value!
+            currentValute.previous = arg0.previous!
+            
+            try! realm.write {
+                realm.add(currentValute)
+            }
+            
+        })
         
     }
     
