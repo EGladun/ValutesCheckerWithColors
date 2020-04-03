@@ -23,6 +23,10 @@
 		FAC1F3432434A4700039749D /* ValuteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1F3412434A4700039749D /* ValuteCell.xib */; };
 		FAC1F3462434ADB40039749D /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1F3442434ADB40039749D /* ListViewController.swift */; };
 		FAC1F3472434ADB40039749D /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1F3452434ADB40039749D /* ListViewController.xib */; };
+		FAFE87D92437688D009806E7 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE87D82437688D009806E7 /* StartViewModel.swift */; };
+		FAFE87DC24376DB4009806E7 /* ValutesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE87DB24376DB4009806E7 /* ValutesCellViewModel.swift */; };
+		FAFE87DE24377E15009806E7 /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE87DD24377E15009806E7 /* ConverterViewModel.swift */; };
+		FAFE87E024378108009806E7 /* CollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE87DF24378108009806E7 /* CollectionCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		FAC1F3412434A4700039749D /* ValuteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ValuteCell.xib; sourceTree = "<group>"; };
 		FAC1F3442434ADB40039749D /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		FAC1F3452434ADB40039749D /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
+		FAFE87D82437688D009806E7 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		FAFE87DB24376DB4009806E7 /* ValutesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValutesCellViewModel.swift; sourceTree = "<group>"; };
+		FAFE87DD24377E15009806E7 /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModel.swift; sourceTree = "<group>"; };
+		FAFE87DF24378108009806E7 /* CollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +109,7 @@
 				FAC1F31D243483BD0039749D /* AppDelegate.swift */,
 				FAC1F331243488270039749D /* Model */,
 				FAC1F330243488210039749D /* View */,
-				FAC1F32F243488140039749D /* Controller */,
+				FAFE87B62437658D009806E7 /* ViewModel */,
 				FAC1F324243483C20039749D /* Assets.xcassets */,
 				FAC1F326243483C20039749D /* LaunchScreen.storyboard */,
 				FAC1F329243483C20039749D /* Info.plist */,
@@ -123,10 +131,8 @@
 		FAC1F330243488210039749D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FAC1F3452434ADB40039749D /* ListViewController.xib */,
-				FAB01F432435E0E200F5109E /* SecondViewController.xib */,
-				FAC1F3412434A4700039749D /* ValuteCell.xib */,
-				FAB01F472435E18900F5109E /* ConvertCollectionViewCell.xib */,
+				FAFE87DA24376C07009806E7 /* Xib */,
+				FAC1F32F243488140039749D /* Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -140,6 +146,28 @@
 				FAB01F4A2435EB2900F5109E /* ValuteModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FAFE87B62437658D009806E7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FAFE87D82437688D009806E7 /* StartViewModel.swift */,
+				FAFE87DD24377E15009806E7 /* ConverterViewModel.swift */,
+				FAFE87DB24376DB4009806E7 /* ValutesCellViewModel.swift */,
+				FAFE87DF24378108009806E7 /* CollectionCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FAFE87DA24376C07009806E7 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				FAC1F3452434ADB40039749D /* ListViewController.xib */,
+				FAB01F432435E0E200F5109E /* SecondViewController.xib */,
+				FAC1F3412434A4700039749D /* ValuteCell.xib */,
+				FAB01F472435E18900F5109E /* ConvertCollectionViewCell.xib */,
+			);
+			path = Xib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,8 +293,12 @@
 				FAC1F3422434A4700039749D /* ValuteCell.swift in Sources */,
 				FAB01F482435E18900F5109E /* ConvertCollectionViewCell.swift in Sources */,
 				FAC1F31E243483BD0039749D /* AppDelegate.swift in Sources */,
+				FAFE87D92437688D009806E7 /* StartViewModel.swift in Sources */,
+				FAFE87DC24376DB4009806E7 /* ValutesCellViewModel.swift in Sources */,
+				FAFE87DE24377E15009806E7 /* ConverterViewModel.swift in Sources */,
 				FAC1F33D2434A1740039749D /* Valute.swift in Sources */,
 				FAB01F442435E0E200F5109E /* SecondViewController.swift in Sources */,
+				FAFE87E024378108009806E7 /* CollectionCellViewModel.swift in Sources */,
 				FAC1F3462434ADB40039749D /* ListViewController.swift in Sources */,
 				FAC1F33B24349B5F0039749D /* TakenJson.swift in Sources */,
 			);

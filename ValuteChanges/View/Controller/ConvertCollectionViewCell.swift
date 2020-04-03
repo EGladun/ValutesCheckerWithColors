@@ -14,7 +14,13 @@ class ConvertCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+    
+    weak var viewModel: CollectionCellViewModel! {
+        didSet {
+            self.codeLabel.text = viewModel.codeText
+            self.rateLabel.text = viewModel.rateText
+        }
     }
 
 }

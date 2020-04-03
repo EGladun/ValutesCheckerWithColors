@@ -17,11 +17,17 @@ class ValuteCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        
+    
+    weak var viewModel: ValutesCellViewModel! {
+        didSet {
+            self.codeLabel.text = viewModel.codeText
+            self.valueLabel.text = viewModel.valueText
+            self.previousLabel.text = viewModel.previousText
+            self.changeLabel.text = viewModel.changeText
+            
+            self.backgroundColor = viewModel.color
+        }
     }
+
     
 }
