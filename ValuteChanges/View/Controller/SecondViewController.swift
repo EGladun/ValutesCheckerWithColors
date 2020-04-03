@@ -64,6 +64,10 @@ class SecondViewController: UIViewController {
     
     func updateOtherLabel() {
         self.otherLabel.text = self.viewModel.takeCode()
+        if let value = self.rubTextField.text {
+            let rubValue = (value as NSString).doubleValue
+            self.otherTextField.text = String(rubValue / self.viewModel.takeRate())
+        }
     }
     
     
@@ -87,6 +91,7 @@ extension SecondViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.viewModel.updateConvertValue(index: indexPath.row)
         self.updateOtherLabel()
+        
     }
     
     

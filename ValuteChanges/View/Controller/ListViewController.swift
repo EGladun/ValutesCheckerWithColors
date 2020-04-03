@@ -32,7 +32,7 @@ class ListViewController: UIViewController {
         
         self.viewModel.updateValutes(){
             self.tableView.reloadData()
-            self.searchBar.isHidden = false
+            //self.searchBar.isHidden = false
             self.stopAnim()
         }
         

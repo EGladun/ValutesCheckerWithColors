@@ -30,6 +30,10 @@ class ConverterViewModel {
         return self.code
     }
     
+    func takeRate() -> Double{
+        return self.rate
+    }
+    
     func convertFromRub(arg: String?) -> String{
         if let value = arg {
             let rubValue = (value as NSString).doubleValue
