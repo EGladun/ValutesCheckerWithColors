@@ -12,10 +12,12 @@ class CollectionCellViewModel {
     
     var codeText: String!
     var rateText: String!
+    var nominal: Int!
     
     required init(item: ValuteModel) {
         self.codeText = item.charCode
         self.rateText = String(item.value)
+        self.nominal = item.nominal
     }
     
 }

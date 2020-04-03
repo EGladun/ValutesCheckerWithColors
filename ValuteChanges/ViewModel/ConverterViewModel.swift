@@ -14,6 +14,7 @@ class ConverterViewModel {
     let realm = try! Realm()
     var collectionArray: Results<ValuteModel>!
     private var cellsArray = [CollectionCellViewModel]()
+    var nominal: Int = 1
     var rate: Double = 1
     var code = "RUB"
     
@@ -37,7 +38,7 @@ class ConverterViewModel {
     func convertFromRub(arg: String?) -> String{
         if let value = arg {
             let rubValue = (value as NSString).doubleValue
-            return String(rubValue / self.rate)
+            return String(rubValue / self.rate * Double(self.nominal))
         }
         return "0"
     }
@@ -45,7 +46,7 @@ class ConverterViewModel {
     func convertToRub(arg: String?) -> String{
         if let value = arg {
             let valValue = (value as NSString).doubleValue
-            return String(valValue * self.rate)
+            return String(valValue * self.rate / Double(self.nominal))
         }
         return "0"
     }
@@ -62,5 +63,6 @@ class ConverterViewModel {
     func updateConvertValue(index: Int) {
         self.code = self.collectionArray[index].charCode
         self.rate = self.collectionArray[index].value
+        self.nominal = self.collectionArray[index].nominal
     }
 }

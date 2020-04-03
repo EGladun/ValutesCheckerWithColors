@@ -12,6 +12,8 @@ class ConvertCollectionViewCell: UICollectionViewCell {
     @IBOutlet var codeLabel: UILabel!
     @IBOutlet var rateLabel: UILabel!
     
+    var nominal: Int!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -20,6 +22,7 @@ class ConvertCollectionViewCell: UICollectionViewCell {
         didSet {
             self.codeLabel.text = viewModel.codeText
             self.rateLabel.text = viewModel.rateText
+            self.nominal = viewModel.nominal
         }
     }
 
