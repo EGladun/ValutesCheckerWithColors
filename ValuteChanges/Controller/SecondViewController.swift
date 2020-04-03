@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Bond
 
 class SecondViewController: UIViewController {
     
@@ -31,18 +32,33 @@ class SecondViewController: UIViewController {
         self.title = "Convert"
         
         self.updateOtherLabel()
+        self.setUpCollectionView()
+        self.setUpTextFields()
         
+    }
+    
+    func setUpCollectionView() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(self.nib, forCellWithReuseIdentifier: self.identifier)
-        
         self.collectionArray = realm.objects(ValuteModel.self)
         self.collectionView.reloadData()
+    }
+    
+    func setUpTextFields() {
+        self.rubTextField.reactive.text.observeNext { (text) in
+            if let value = text {
+                let rubValue = (value as NSString).doubleValue
+                self.otherTextField.text = String(rubValue / self.rate)
+            }
+        }
         
-        self.rubTextField.addTarget(self, action: #selector(self.converterRub), for: .editingChanged)
-        
-        self.otherTextField.addTarget(self, action: #selector(self.converterToRub), for: .editingChanged)
-        
+        self.otherTextField.reactive.text.observeNext { (text) in
+            if let value = text {
+                let valValue = (value as NSString).doubleValue
+                self.rubTextField.text = String(valValue * self.rate)
+            }
+        }
     }
 
     @IBAction func closeKBButton(_ sender: Any) {
@@ -52,16 +68,6 @@ class SecondViewController: UIViewController {
     
     func updateOtherLabel() {
         self.otherLabel.text = self.code
-        print(self.code)
-        print(self.rate)
-    }
-    
-    @objc func converterRub() {
-        print(self.rubTextField.text ?? "null")
-    }
-    
-    @objc func converterToRub() {
-        print("convert to rub")
     }
     
     

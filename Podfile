@@ -9,5 +9,7 @@ target 'ValuteChanges' do
 	pod 'Alamofire'
 	pod 'AlamofireObjectMapper'
 	pod 'RealmSwift'
+	pod 'ReactiveKit' 
+	pod 'Bond'
 
 end
