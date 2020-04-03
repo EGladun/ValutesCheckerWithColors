@@ -76,9 +76,14 @@ class StartViewModel {
     }
     
     func search(arg: String, completion: @escaping() -> Void) {
+        self.searchValute.removeAll()
+        self.searchingCellsArray.removeAll()
        self.searchValute = self.valutesArray.filter({
         ($0.charCode?.lowercased().prefix(arg.count).elementsEqual(arg.lowercased()))!
        })
+        self.searchValute.forEach { (arg0) in
+            self.searchingCellsArray.append(ValutesCellViewModel(item: arg0))
+        }
         completion()
     }
     
